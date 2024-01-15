@@ -1,0 +1,20 @@
++----------------------+------------------------+---------------------+------------------------+
+| Aspecto / Función    | Descripción            | Puntos de Auditoría | Procedimientos de Auditoría |
++----------------------+------------------------+---------------------+------------------------+
+| 1. Autenticación     | Verificar la seguridad | - Formulario de     | - Revisar el proceso de   |
+|                       | de la autenticación    |   conexión         |   autenticación.         |
++----------------------+------------------------+---------------------+------------------------+
+| 2. Integridad de los | Verificar la integridad| - Métodos de       | - Comparar los hash      |
+|   Datos               | de los datos almacenados| hachado para los   |   almacenados con los     |
+|                       | con sus hash           |   datos.            |   hash calculados de los  |
+|                       |                        | - Procedimientos   |   datos actuales.         |
+|                       |                        |   de generación    | - Asegurarse de que los   |
+|                       |                        |   de hash.          |   métodos de generación   |
+|                       |                        |                     |   de hash son robustos.   |
++----------------------+------------------------+---------------------+------------------------+
+| 3. Seguimiento de    | Recuperar las acciones | - Registro de       | - Revisar los registros  |
+|   Acciones           | (añadir, modificar,     |   acciones.        |   de acciones para       |
+|                       | eliminar) dentro del    |                   |   verificar quién hizo   |
+|                       | programa.               |                   |   qué, cuándo y qué      |
+|                       |                        |                   |   acción se realizó.     |
++----------------------+------------------------+---------------------+------------------------+
