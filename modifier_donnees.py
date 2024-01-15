@@ -11,6 +11,14 @@ from datetime import datetime
 import json
 
 nombre_de_archivo = 'Datos.xlsx'
+id_vente = 'ID Venta'
+id_produit = 'ID Producto'
+valor_precio = "Introduzca el valor de Precio (n\u00famero): "
+valor_telefono = "Introduzca el valor de Telefono (n\u00famero): "
+str_hoja = "Hoja : "
+str_nueva_linea = ", Nueva linea : "
+str_linea = ", l\u00ednea :"
+
 
 ####    Funciones internas de adicion, supresion y visualizacion           ####
 def get_column_letter(column_number):
@@ -119,7 +127,7 @@ def crear_venta():
     while True:
         id_venta = int(input("Introduzca el valor de ID Venta (n\u00famero entero): "))
         df = pd.read_excel(nombre_de_archivo, sheet_name=nombre_cartera)
-        if id_venta in df['ID Venta'].values:
+        if id_venta in df[id_vente].values:
             print(f"Ya existe una venta con ID Venta {id_venta}. Int\u00e9ntelo de nuevo.")
         else:
             break
@@ -131,10 +139,10 @@ def crear_venta():
         id_producto = input("Introduzca el valor de ID Producto (n\u00famero): ")
 
     #Precio
-    precio = input("Introduzca el valor de Precio (n\u00famero): ")
+    precio = input(valor_precio)
     while not precio.isdigit():
         print("Precio debe ser un n\u00famero.")
-        precio = input("Introduzca el valor de Precio (n\u00famero): ")
+        precio = input(valor_precio)
 
     #Fecha
     while True:
@@ -146,8 +154,8 @@ def crear_venta():
            print("Fecha debe estar en el formato DD/MM/YY. Int\u00e9ntelo de nuevo.")
 
     nueva_linea = {
-        'ID Venta': int(id_venta),
-        'ID Producto': int(id_producto),
+        id_vente: int(id_venta),
+        id_produit: int(id_producto),
         'Fecha': fecha,
         'Precio': int(precio)
     }
@@ -200,7 +208,7 @@ def modificar_venta():
             nouvelle_valeur = input(f"Introduzca el nuevo valor por {columna} (DD/MM/YYYY): ")
 
         #Verifie le format de la nouvelle valeur
-        if columna == 'ID Venta' or columna == 'ID Producto':
+        if columna == id_vente or columna == id_produit:
             try:
                 nouvelle_valeur = int(nouvelle_valeur)
             except ValueError:
@@ -220,7 +228,7 @@ def modificar_venta():
                 return
 
         hoja[coordonnee] = nouvelle_valeur
-        linea = {'ID Venta' : hoja[f"A{numero_de_linea}"].value, 'ID Producto': hoja[f"B{numero_de_linea}"].value, 'Fecha': hoja[f"C{numero_de_linea}"].value, 'Precio': hoja[f"D{numero_de_linea}"].value}
+        linea = {id_vente : hoja[f"A{numero_de_linea}"].value, id_produit: hoja[f"B{numero_de_linea}"].value, 'Fecha': hoja[f"C{numero_de_linea}"].value, 'Precio': hoja[f"D{numero_de_linea}"].value}
     
         #Modifie le hash
         coord_hash = f"E{numero_de_linea}"
@@ -250,7 +258,7 @@ def agregar_productos():
     while True:
         id_prod = int(input("Introduzca el valor de ID Producto (n\u00famero entero): "))
         df = pd.read_excel(nombre_de_archivo, sheet_name=nombre_cartera)
-        if id_prod in df['ID Producto'].values:
+        if id_prod in df[id_produit].values:
             print(f"Ya existe una venta con ID Producto {id_prod}. Int\u00e9ntelo de nuevo.")
         else:
             break
@@ -262,13 +270,13 @@ def agregar_productos():
     desc = input("Introduzca el Descripcion : ")
 
     #Precio
-    precio = input("Introduzca el valor de Precio (n\u00famero): ")
+    precio = input(valor_precio)
     while not precio.isdigit():
         print("Precio debe ser un n\u00famero.")
-        precio = input("Introduzca el valor de Precio (n\u00famero): ")
+        precio = input(valor_precio)
 
     nueva_linea = {
-        'ID Producto': int(id_prod),
+        id_produit: int(id_prod),
         'Nombre': nombre,
         'Descripcion': desc,
         'Precio': int(precio)
@@ -326,10 +334,10 @@ def crear_cliente():
     #type : bytes
     
     #Telefono
-    telefono = input("Introduzca el valor de Telefono (n\u00famero): ")
+    telefono = input(valor_telefono)
     while not telefono.isdigit():
         print("Telefono debe ser un n\u00famero.")
-        telefono = input("Introduzca el valor de Telefono (n\u00famero): ")
+        telefono = input(valor_telefono)
     telefono = crypter.encrypt_aes(telefono.encode('utf-8'), key)
 
     nueva_linea = {
@@ -383,7 +391,7 @@ def modificar_cliente():
         if columna == 'Telefono':
             while not nouvelle_valeur.isdigit():
                 print("Telefono debe ser un n\u00famero.")
-                nouvelle_valeur = input("Introduzca el valor de Telefono (n\u00famero): ")
+                nouvelle_valeur = input(valor_telefono)
             nouvelle_valeur = crypter.encrypt_aes(nouvelle_valeur.encode('utf-8'), key)
             df.at[numero_de_linea, columna] = nouvelle_valeur
             df.at[numero_de_linea, 'Direccion'] = crypter.encrypt_aes(df.at[numero_de_linea, 'Direccion'].encode('utf-8'), key)
@@ -425,54 +433,54 @@ def exec(nom_action, funcione_usuario):
 
     if nom_action == 'Crear venta':
         ligne = crear_venta()
-        obj = "Hoja : " + ligne[0]
+        obj = str_hoja + ligne[0]
         nueva_linea = ligne[1]
         nueva_linea['Fecha'] = nueva_linea['Fecha'].strftime("%Y-%m-%d %H:%M:%S")
         nueva_linea = dict(list(nueva_linea.items())[:4])
         nueva_linea = json.dumps(nueva_linea)
-        obj =  obj + ", Nueva linea : " + nueva_linea
+        obj =  obj + str_nueva_linea + nueva_linea
     elif nom_action == 'Modificar venta' :
         ligne = modificar_venta()
-        obj = "hoja : " + ligne[0] + ", l\u00ednea :" + str(ligne[1]) + ", columna :" + str(ligne[2])
+        obj = str_hoja + ligne[0] + str_linea + str(ligne[1]) + ", columna :" + str(ligne[2])
     elif nom_action == 'Eliminar venta' :
         ligne = eliminar_venta()
-        obj = "hoja : " + ligne[0] + ", l\u00ednea :" + str(ligne[1])
+        obj = str_hoja + ligne[0] + str_linea + str(ligne[1])
     elif nom_action == 'Listar productos' :
         listar_productos()
         obj = "hoja : Productos"
     elif nom_action == 'Agregar productos' :
         ligne = agregar_productos()
-        obj = "hoja : " + ligne[0]
+        obj = str_hoja + ligne[0]
         nueva_linea = ligne[1]
         nueva_linea = dict(list(nueva_linea.items())[:4])
         nueva_linea = json.dumps(nueva_linea)
-        obj =  obj + ", Nueva linea : " + nueva_linea
+        obj =  obj + str_nueva_linea + nueva_linea
     elif nom_action == 'Desactivar productos' :
         ligne = desactivar_productos()
-        obj = "hoja : " + ligne[0] + ", l\u00ednea :" + str(ligne[1])
+        obj = str_hoja + ligne[0] + str_linea + str(ligne[1])
     elif nom_action == 'Agregar usuario':
         ligne = agregar_usuario()
-        obj = "Hoja : " + ligne[0]
+        obj = str_hoja + ligne[0]
         nueva_linea = ligne[1]
         nueva_linea = dict(list(nueva_linea.items())[:3])
         nueva_linea = json.dumps(nueva_linea)
-        obj =  obj + ", Nueva linea : " + nueva_linea
+        obj =  obj + str_nueva_linea + nueva_linea
     elif nom_action == 'Crear cliente':
         ligne = crear_cliente()
-        obj = "Hoja : " + ligne[0]
+        obj = str_hoja + ligne[0]
         nueva_linea = ligne[1]
         key = nueva_linea['Key']
         nueva_linea['Direccion'] = crypter.decrypt_aes(nueva_linea['Direccion'], key)[2:-1]
         nueva_linea['Telefono'] = crypter.decrypt_aes(nueva_linea['Telefono'], key)[2:-1]
         nueva_linea = dict(list(nueva_linea.items())[:4])
         nueva_linea = json.dumps(nueva_linea)
-        obj =  obj + ", Nueva linea : " + nueva_linea
+        obj =  obj + str_nueva_linea + nueva_linea
     elif nom_action == 'Modificar cliente':
         ligne = modificar_cliente()
-        obj = "hoja : " + ligne[0] + ", l\u00ednea :" + str(ligne[1]) + ", columna :" + str(ligne[2])
+        obj = str_hoja + ligne[0] + str_linea + str(ligne[1]) + ", columna :" + str(ligne[2])
     elif nom_action == 'Eliminar cliente':
         ligne = eliminar_cliente()
-        obj = "hoja : " + ligne[0] + ", l\u00ednea :" + str(ligne[1])
+        obj = str_hoja + ligne[0] + str_linea + str(ligne[1])
 
     #Ajoute la ligne d action a  audit.txt
     nvl_ligne = date + " Accion : " + nom_action + ", " + obj + " por " + act + "\n"
