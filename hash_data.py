@@ -207,7 +207,6 @@ def choix_integrite(problemes_integrite, funcione_usuario):
         choix.append((nom_feuille, numero_ligne, choix_utilisateur))
 
     for (nom_feuille, numero_ligne, choix_utilisateur) in reversed(choix):
-        df = pd.read_excel(nom_fichier, sheet_name=nom_feuille)
         date_heure = modifier_donnees.date_heure()
         cat = " Integridad corrupta "
         act = funcione_usuario
