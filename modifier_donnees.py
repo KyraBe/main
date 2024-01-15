@@ -6,7 +6,6 @@ from datetime import datetime
 import hash_data
 import crypter
 import ast
-import base64
 from openpyxl.utils import get_column_letter
 from datetime import datetime
 import json
@@ -195,7 +194,10 @@ def modificar_venta():
         letra_columna = get_column_letter(columna_index+1)
         coordonnee = f"{letra_columna}{numero_de_linea}"
 
-        nouvelle_valeur = input("Introduzca el nuevo valor : ")
+        if columna != "Fecha" :
+            nouvelle_valeur = input(f"Introduzca el nuevo valor por {columna}: ")
+        elif columna == "Fecha" :
+            nouvelle_valeur = input(f"Introduzca el nuevo valor por {columna} (DD/MM/YYYY): ")
 
         #Verifie le format de la nouvelle valeur
         if columna == 'ID Venta' or columna == 'ID Producto':
@@ -374,8 +376,9 @@ def modificar_cliente():
 
         columna = df.columns[columna_index]
 
+
     #modifie la ligne et recrypte
-        nouvelle_valeur = input("Introduzca el nuevo valor : ")
+        nouvelle_valeur = input(f"Introduzca el nuevo valor por {columna}: ")
     
         if columna == 'Telefono':
             while not nouvelle_valeur.isdigit():
@@ -413,7 +416,6 @@ def eliminar_cliente():
     mostrar_lineas_crypt(nombre_cartera)
     linea = borrar_linea(nombre_cartera)
     return(nombre_cartera, linea)
-
 
 
 ####    Fonction d'execution    ####
