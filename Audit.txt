@@ -1,0 +1,24 @@
+
+2024-01-12 16:08:21 Conexión denegada Aplicación
+
+2024-01-12 16:08:24 Conexión correcta Aplicación Admin
+
+2024-01-12 16:08:47 Conexión correcta Aplicación Admin
+
+2024-01-12 16:09:58 Conexión correcta Aplicación Admin
+2024-01-12 16:09:58 Problemas de integridad ('Ventas', 2) ('Ventas', 3) ('Productos', 3)
+2024-01-12 16:10:08 Integridad corrupta Borrar línea 3 página Productos por Admin
+2024-01-12 16:10:08 Integridad corrupta Borrar línea 3 página Ventas por Admin
+2024-01-12 16:10:08 Integridad corrupta Borrar línea 2 página Ventas por Admin
+
+2024-01-12 20:40:11 Conexión correcta Aplicación Admin
+
+2024-01-12 20:42:20 Conexión correcta Aplicación Admin
+
+2024-01-12 20:43:18 Conexión correcta Aplicación Admin
+
+2024-01-12 20:43:59 Conexión correcta Aplicación Admin
+
+2024-01-12 20:44:57 Conexión correcta Aplicación Admin
+
+2024-01-12 20:45:28 Conexión correcta Aplicación Admin
