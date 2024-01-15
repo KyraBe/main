@@ -22,3 +22,59 @@
 2024-01-12 20:44:57 Conexión correcta Aplicación Admin
 
 2024-01-12 20:45:28 Conexión correcta Aplicación Admin
+
+2024-01-15 20:48:48 Conexión correcta Aplicación Admin
+2024-01-15 20:48:51 Accion : Crear venta, Hoja : Ventas, Nueva linea : {"ID Venta": 3, "ID Producto": 2, "Fecha": "2001-01-01 00:00:00", "Precio": 43} por Admin
+
+2024-01-15 20:49:44 Conexión correcta Aplicación Admin
+2024-01-15 20:49:47 Accion : Modificar venta, hoja : Ventas, línea :0, columna :ID Venta por Admin
+2024-01-15 20:49:59 Accion : Eliminar venta, hoja : Ventas, línea :1 por Admin
+2024-01-15 20:50:07 Accion : Listar productos, hoja : Productos por Admin
+2024-01-15 20:50:10 Accion : Agregar productos, hoja : Productos, Nueva linea : {"ID Producto": 2, "Nombre": "bevsf", "Descripcion": "bergzf", "Precio": 234} por Admin
+2024-01-15 20:50:22 Accion : Desactivar productos, hoja : Productos, línea :0 por Admin
+2024-01-15 20:50:28 Accion : Agregar usuario, Hoja : Usuarios, Nueva linea : {"ID Rol": 7, "Nombre": "be", "Permissions": "bqgzfeqs"} por Admin
+2024-01-15 20:50:38 Accion : Crear cliente, Hoja : Clientes, Nueva linea : {"Nombre": "bnsregf", "Apellidos": "nrthegqef", "Direccion": "nfdsbgw", "Telefono": "876543"} por Admin
+2024-01-15 20:50:46 Accion : Modificar cliente, hoja : Clientes, línea :1, columna :Apellidos por Admin
+2024-01-15 20:51:14 Accion : Eliminar cliente, hoja : Clientes, línea :0 por Admin
+
+2024-01-15 20:52:36 Conexión correcta Aplicación Admin
+2024-01-15 20:52:40 Accion : Modificar venta, hoja : Ventas, línea :0, columna :ID Producto por Admin
+
+2024-01-15 20:54:25 Conexión correcta Aplicación Admin
+
+2024-01-15 20:55:14 Conexión correcta Aplicación Admin
+2024-01-15 20:55:19 Accion : Modificar venta, hoja : Ventas, línea :0, columna :Fecha por Admin
+2024-01-15 20:56:48 Accion : Crear venta, Hoja : Ventas, Nueva linea : {"ID Venta": 6, "ID Producto": 4, "Fecha": "2002-02-23 00:00:00", "Precio": 32} por Admin
+
+2024-01-15 20:57:52 Conexión correcta Aplicación Admin
+2024-01-15 20:57:55 Accion : Modificar venta, hoja : Ventas, línea :0, columna :Fecha por Admin
+
+2024-01-15 21:12:30 Conexión correcta Aplicación Admin
+2024-01-15 21:12:30 Problemas de integridad ('Ventas', 3)
+2024-01-15 21:12:33 Integridad corrupta Borrar línea 3 página Ventas por Admin
+
+2024-01-15 22:05:05 Conexión correcta Aplicación Admin
+2024-01-15 22:05:09 Accion : Crear venta, Hoja : Ventas, Nueva linea : {"ID Venta": 1, "ID Producto": 43, "Fecha": "2001-01-01 00:00:00", "Precio": 65} por Admin
+
+2024-01-15 22:06:13 Conexión correcta Aplicación Admin
+2024-01-15 22:06:16 Accion : Eliminar venta, Hoja : Ventas, línea :0 por Admin
+2024-01-15 22:06:19 Accion : Eliminar venta, Hoja : Ventas, línea :0 por Admin
+2024-01-15 22:06:21 Accion : Eliminar venta, Hoja : Ventas, línea :0 por Admin
+2024-01-15 22:06:24 Accion : Eliminar venta, Hoja : Ventas, línea :0 por Admin
+2024-01-15 22:06:27 Accion : Crear venta, Hoja : Ventas, Nueva linea : {"ID Venta": 1, "ID Producto": 5, "Fecha": "2022-05-23 00:00:00", "Precio": 23} por Admin
+2024-01-15 22:06:47 Accion : Crear venta, Hoja : Ventas, Nueva linea : {"ID Venta": 2, "ID Producto": 1, "Fecha": "2023-03-31 00:00:00", "Precio": 5} por Admin
+2024-01-15 22:07:03 Accion : Crear venta, Hoja : Ventas, Nueva linea : {"ID Venta": 3, "ID Producto": 6, "Fecha": "2023-12-08 00:00:00", "Precio": 12} por Admin
+2024-01-15 22:07:29 Accion : Listar productos, hoja : Productos por Admin
+2024-01-15 22:07:32 Accion : Desactivar productos, Hoja : Productos, línea :0 por Admin
+2024-01-15 22:07:35 Accion : Desactivar productos, Hoja : Productos, línea :0 por Admin
+2024-01-15 22:07:36 Accion : Desactivar productos, Hoja : Productos, línea :0 por Admin
+2024-01-15 22:07:40 Accion : Agregar productos, Hoja : Productos, Nueva linea : {"ID Producto": 1, "Nombre": "Azul", "Descripcion": "calcetines azules", "Precio": 5} por Admin
+2024-01-15 22:08:18 Accion : Agregar productos, Hoja : Productos, Nueva linea : {"ID Producto": 2, "Nombre": "Roja", "Descripcion": "calcetines rojos", "Precio": 6} por Admin
+2024-01-15 22:08:35 Accion : Agregar productos, Hoja : Productos, Nueva linea : {"ID Producto": 3, "Nombre": "Verde", "Descripcion": "calcetines verdes", "Precio": 3} por Admin
+2024-01-15 22:09:03 Accion : Listar productos, hoja : Productos por Admin
+2024-01-15 22:09:11 Accion : Agregar usuario, Hoja : Usuarios, Nueva linea : {"ID Rol": 1, "Nombre": "Kyra", "Permissions": ""} por Admin
+2024-01-15 22:09:27 Accion : Agregar usuario, Hoja : Usuarios, Nueva linea : {"ID Rol": 3, "Nombre": "R\u00e9mi", "Permissions": ""} por Admin
+2024-01-15 22:09:43 Accion : Eliminar cliente, Hoja : Clientes, línea :0 por Admin
+2024-01-15 22:09:46 Accion : Eliminar cliente, Hoja : Clientes, línea :0 por Admin
+2024-01-15 22:09:49 Accion : Crear cliente, Hoja : Clientes, Nueva linea : {"Nombre": "Kyra", "Apellidos": "Bernaudat", "Direccion": "Calle ejemplo 9, Valladolid", "Telefono": "123456789"} por Admin
+2024-01-15 22:10:18 Accion : Crear cliente, Hoja : Clientes, Nueva linea : {"Nombre": "R\u00e9mi", "Apellidos": "Delmaere", "Direccion": "Calle ejemplo 9, Valladolid", "Telefono": "987654321"} por Admin
