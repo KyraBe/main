@@ -61,7 +61,7 @@ def supprimer_ligne_bis(nom_feuille, numero_ligne):
 
 
 ####        Fonctions de choix si problemes d'integrite pour l'utilisateur       ####
-def eliminer_donnee(df, numero_ligne, nom_feuille):
+def eliminer_donnee(numero_ligne, nom_feuille):
     excel_file = pd.ExcelFile(nom_fichier)
     df = excel_file.parse(nom_feuille)
     df.drop(numero_ligne, inplace=True)
@@ -214,7 +214,7 @@ def choix_integrite(problemes_integrite, funcione_usuario):
         act = funcione_usuario
 
         if choix_utilisateur == "1":
-            eliminer_donnee(df, numero_ligne, nom_feuille)  
+            eliminer_donnee(numero_ligne, nom_feuille)  
             accion = "Borrar l\u00ednea " + str(numero_ligne) + " p\u00e1gina " + nom_feuille
         elif choix_utilisateur == "2":
             cloner_et_marquer()
