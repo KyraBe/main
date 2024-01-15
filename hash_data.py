@@ -65,7 +65,7 @@ def eliminer_donnee(numero_ligne, nom_feuille):
     excel_file = pd.ExcelFile(nom_fichier)
     df = excel_file.parse(nom_feuille)
     df.drop(numero_ligne, inplace=True)
-    with pd.ExcelWriter('Datos.xlsx') as writer:
+    with pd.ExcelWriter(nom_fichier) as writer:
         df.to_excel(writer, sheet_name=nom_feuille, index=False)
         for sheet_name in excel_file.sheet_names:
             if sheet_name != nom_feuille:
@@ -149,7 +149,6 @@ def modifier_et_regenerer(nom_feuille, numero_ligne):
 
 ####        Fonctions pour check l'intergrite et faire un choix     ####
 def check_integrity(funcione_usuario):
-    nom_fichier='Datos.xlsx'
     wb = openpyxl.load_workbook(nom_fichier)
     problemes_integrite = []
 
@@ -196,7 +195,7 @@ def choix_integrite(problemes_integrite, funcione_usuario):
     choix = []
     for (nom_feuille, numero_ligne) in problemes_integrite:
         print(f"\nProblema de integridad en la p\u00e1gina {nom_feuille} en la l\u00ednea {numero_ligne}:")
-        df = pd.read_excel('Datos.xlsx', sheet_name=nom_feuille)
+        df = pd.read_excel(nom_fichier, sheet_name=nom_feuille)
         print(df.iloc[numero_ligne]) 
 
         print("\nOpciones:")
@@ -208,7 +207,7 @@ def choix_integrite(problemes_integrite, funcione_usuario):
         choix.append((nom_feuille, numero_ligne, choix_utilisateur))
 
     for (nom_feuille, numero_ligne, choix_utilisateur) in reversed(choix):
-        df = pd.read_excel('Datos.xlsx', sheet_name=nom_feuille)
+        df = pd.read_excel(nom_fichier, sheet_name=nom_feuille)
         date_heure = modifier_donnees.date_heure()
         cat = " Integridad corrupta "
         act = funcione_usuario
